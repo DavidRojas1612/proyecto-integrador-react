@@ -1,11 +1,12 @@
-import { IS_AUTHED, SET_QTIONS, SET_TITLE } from './actionsConst'
+import { IS_AUTHED, SET_THEMES, SET_TITLE, GET_THEME } from './actionsConst'
 import firebase from 'firebase/app'
 import 'firebase/database/dist/index.cjs'
 import 'firebase/auth'
 
 export const isAuthed = value => ({ type: IS_AUTHED, payload: value })
-const setQuestions = value => ({ type: SET_QTIONS, payload: value })
-const setTitle = value => ({ type: SET_TITLE, payload: value })
+export const setTitle = value => ({ type: SET_TITLE, payload: value })
+export const setThemes = value => ({ type: SET_THEMES, payload: value })
+export const getTheme = value => ({ type: GET_THEME, payload: value })
 
 export const logIn = () => {
   return dispatch => {
@@ -42,11 +43,11 @@ export const logOut = () => {
   }
 }
 
-export const getQuestions = () => {
+export const getThemes = () => {
   return dispatch => {
     const database = firebase.database()
     database.ref().once('value', snapshot => {
-      dispatch(setQuestions(snapshot.val()))
+      dispatch(setThemes(snapshot.val()))
       dispatch(setTitle('Topics Board'))
     })
   }

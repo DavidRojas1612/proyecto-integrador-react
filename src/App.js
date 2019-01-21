@@ -18,11 +18,11 @@ class App extends Component {
     this.setState({ loading: true })
     this.unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.props.dispatch(isAuthed({ authed: true, user }))
+        this.props.isAuthed({ authed: true, user })
         this.setState({ loading: false })
       } else {
+        this.props.isAuthed({ authed: false, user: null })
         this.setState({ loading: false })
-        this.props.dispatch(isAuthed({ authed: false, user: null }))
       }
     })
   }
@@ -53,8 +53,10 @@ class App extends Component {
   }
 }
 const mapStateToProps = ({ authed }) => ({ authed })
-
+const mapDispatchToProps = dispatch => ({
+  isAuthed: val => dispatch(isAuthed(val))
+})
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(App)

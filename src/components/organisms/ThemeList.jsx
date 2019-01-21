@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import ThemeItem from './ThemeItem'
 import './ThemeList.scss'
 
-const ThemeList = ({ questions }) => {
-  const renderThemeList = questions => {
-    return questions.map(({ theme }, i) => (
+const ThemeList = ({ themes }) => {
+  const renderThemeList = themes => {
+    return themes.map(({ theme }, i) => (
       <ThemeItem
         key={i}
         title={theme}
@@ -16,14 +16,12 @@ const ThemeList = ({ questions }) => {
     ))
   }
   return (
-    <div className='ThemeList'>
-      {questions && <>{renderThemeList(questions)}</>}
-    </div>
+    <div className='ThemeList'>{themes && <>{renderThemeList(themes)}</>}</div>
   )
 }
 
 ThemeList.propTypes = {
-  questions: PropTypes.array.isRequired
+  themes: PropTypes.array.isRequired
 }
 
 export default ThemeList
