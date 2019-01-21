@@ -1,31 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from 'react'
 
-const Theme = ({theme}) => {
-    const muestra = () =>{
-        if(theme) console.log(theme)
-        else return "viva uribe hpta"
-    }
-    return (
-        <div>
-            <h1>Hola desde aquí</h1>
-            {
-                muestra()
-            }
-        </div>
-    );
-};
+const Theme = ({
+  match: {
+    params: { id }
+  }
+}) => {
+  console.log(id)
+  return (
+    <div>
+      <h1>Hola desde aquí</h1>
+    </div>
+  )
+}
 
-Theme.propTypes = {
-    
-};
-
-const mapDispatchToProps = dispatch => ({
-    // getQuestions: () => dispatch(getQuestions()),
-})
-const mapStateToProps = (state, props) => ({
-    theme: state.questions[props.id]
-})
-
-export default connect(mapStateToProps, null )(Theme);
+export default Theme

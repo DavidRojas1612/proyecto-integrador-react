@@ -1,28 +1,32 @@
-import React, { Fragment } from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import Button from '../Atoms/Button'
-import { logIn,logOut } from '../../actions'
-const LoginButton = ({authed, logIn, logOut}) => {
+import { logIn, logOut } from '../../actions'
 
-    return (
-        <Fragment>
-            { authed ? 
-                <Button onClick={()=>logOut()} >Cerrar Sesión</Button> :
-                <Button onClick={()=>logIn()} > Iniciar Sesión</Button>
-            }
-        </Fragment>
-    );
-};
+const LoginButton = ({ authed, logIn, logOut }) => {
+  return (
+    <>
+      {authed ? (
+        <Button onClick={() => logOut()}>Cerrar Sesión</Button>
+      ) : (
+        <Button onClick={() => logIn()}> Iniciar Sesión</Button>
+      )}
+    </>
+  )
+}
 
 LoginButton.propTypes = {
-    authed: PropTypes.bool.isRequired,
-};
+  authed: PropTypes.bool.isRequired
+}
 const mapDispatchToProps = dispatch => ({
-    logIn: () => dispatch(logIn()),
-    logOut: () => dispatch(logOut())
+  logIn: () => dispatch(logIn()),
+  logOut: () => dispatch(logOut())
 })
 
-const mapStateToProps = ({authed}) => ({authed})
+const mapStateToProps = ({ authed }) => ({ authed })
 
-export default connect(mapStateToProps, mapDispatchToProps )(LoginButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginButton)

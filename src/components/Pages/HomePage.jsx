@@ -1,16 +1,9 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react'
 
-const HomePage = props => {
-    return (
-        <div>
-            <h1>PAGINA DE INCICIO ANTES DE LOGUEO </h1>
-        </div>
-    );
-};
+const HomePage = props => (
+  <div>
+    <h1>PAGINA DE INICIO ANTES DE LOGUEO </h1>
+  </div>
+)
 
-// HomePage.propTypes = {
-    
-// };
-
-export default HomePage;
+export default HomePage
