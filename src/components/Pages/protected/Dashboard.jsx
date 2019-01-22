@@ -1,28 +1,43 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Loader from '../../Atoms/Loader'
-import { getThemes } from '../../../actions'
+import { getThemes, setTitle } from '../../../actions'
 import ThemeList from '../../organisms/ThemeList'
 import './Dashboard.scss'
 
 class Dashboard extends Component {
+  state = {
+    isResetTitle:false
+  }
+
   componentDidMount () {
-    if (this.props.themes) return null
-    else this.props.getThemes()
+    const { isResetTitle } = this.state
+    if (!this.props.themes) this.props.getThemes() 
+    if(!isResetTitle) this.setTitle()
+  }
+  
+  setTitle = () =>{
+    this.props.setTitle('Topics Board')
+    this.setState({
+      isResetTitle:true
+    }) 
   }
 
   render () {
-    const { themes } = this.props
+    const { themes} = this.props
     return (
       <div className='dashboard'>
-        {!themes ? <Loader /> : <ThemeList themes={themes} />}
+        {!themes ? <Loader /> : 
+          <ThemeList themes={themes} /> 
+        }
       </div>
     )
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getThemes: () => dispatch(getThemes())
+  getThemes: () => dispatch(getThemes()),
+  setTitle: value =>  dispatch(setTitle(value))
 })
 const mapStateToProps = ({ themes }) => ({ themes })
 

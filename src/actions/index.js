@@ -48,7 +48,6 @@ export const getThemes = () => {
     const database = firebase.database()
     database.ref().once('value', snapshot => {
       dispatch(setThemes(snapshot.val()))
-      dispatch(setTitle('Topics Board'))
     })
   }
 }
