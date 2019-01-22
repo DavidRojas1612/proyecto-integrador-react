@@ -6,6 +6,10 @@ import ThemeList from '../../organisms/ThemeList'
 import './Dashboard.scss'
 
 class Dashboard extends Component {
+  state = {
+    isResetTitle: false
+  }
+
   componentDidMount () {
     if (!this.props.themes) this.props.getThemes()
     this.props.handleOnSetTheme(null)
