@@ -41,9 +41,11 @@ class App extends Component {
             <Loader />
           ) : (
             <>
-              <Toolbar />
               <Router>
-                <Routes authed={authed} />
+                <>
+                  <Toolbar />
+                  <Routes authed={authed} />
+                </>
               </Router>
             </>
           )}
@@ -53,9 +55,11 @@ class App extends Component {
   }
 }
 const mapStateToProps = ({ authed }) => ({ authed })
+
 const mapDispatchToProps = dispatch => ({
   isAuthed: val => dispatch(isAuthed(val))
 })
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

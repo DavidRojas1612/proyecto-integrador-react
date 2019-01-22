@@ -1,13 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react'
 import './Title.scss'
 
+const Title = ({ children }) => <h1 className='title'>{children}</h1>
 
-const Title = ({children}) => {
-    return (
-        <Fragment>
-            <h1 className="title">{children}</h1>
-        </Fragment>
-    );
-};
-
-export default Title;
+export default Title
