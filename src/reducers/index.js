@@ -2,7 +2,7 @@ import {
   IS_AUTHED,
   SET_THEMES,
   SET_TITLE,
-  GET_THEME
+  SET_THEME
 } from '../actions/actionsConst'
 
 export const reducers = (state, action) => {
@@ -13,7 +13,7 @@ export const reducers = (state, action) => {
       return { ...state, themes: action.payload }
     case SET_TITLE:
       return { ...state, title: action.payload }
-    case GET_THEME:
+    case SET_THEME:
       return { ...state, theme: action.payload }
     default:
       return state

@@ -10,4 +10,4 @@ export const SET_THEMES = 'SET_THEMES'
 
 export const SET_TITLE = 'SET_TITLE'
 
-export const GET_THEME = 'GET_THEME'
+export const SET_THEME = 'SET_THEME'

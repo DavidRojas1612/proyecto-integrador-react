@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import './ThemeItem.scss'
 import { setTitle } from '../../actions'
 
-const ThemeItem = ({ title, classTheme, path, id, setTitle }) => {
+const ThemeItem = ({ title, classTheme, path, id }) => {
   return (
     <div className={`card-theme ${classTheme}`}>
       <NavLink className='card-theme__nav' to={`${path}/${id}`}>
