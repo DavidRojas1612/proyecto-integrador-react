@@ -1,0 +1,57 @@
+@import '../../shared/variables.scss';
+@import '../../shared/mixins.scss';
+
+.theme {
+  &__container{
+    margin-top: 20px;
+    padding: 1rem 2rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 350px;
+    
+  }
+
+  &__theory{
+    padding: 2rem;
+    background-color:color(orange);
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+			height: 6px;
+			border: none;
+      background-color: darken(color(grey-light), 5%);
+
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border: none;
+			background-color: color(grey);
+			border-radius: 0.5rem;
+		}
+
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: color(grey);
+		}
+  }
+
+  &__image{
+    
+    padding: 2rem;
+    background-color:color(red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+
+    &-img{
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px solid color(border-color);
+      object-fit: contain;
+      transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+    }
+  }
+}

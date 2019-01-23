@@ -4,28 +4,31 @@ import Title from '../Atoms/Title'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-const HeaderBar = ({ authed, user, theme, location }) => (
-  <>
-    {authed ? (
-      <>
-        <li className='tool'>
-          <Title>{user.displayName}</Title>
-        </li>
-        {theme ? (
+const HeaderBar = ({ authed, user, theme }) => {
+  document.title = theme ? theme.theme : 'PI APP'
+  return (
+    <>
+      {authed ? (
+        <>
           <li className='tool'>
-            <Title>{theme.theme}</Title>
+            <Title>{user.displayName}</Title>
           </li>
-        ) : (
-          <Title>{'Topics Board'}</Title>
-        )}
-      </>
-    ) : (
-      <li className='tool'>
-        <Title>learning to programing</Title>
-      </li>
-    )}
-  </>
-)
+          {theme ? (
+            <li className='tool'>
+              <Title>{theme.theme}</Title>
+            </li>
+          ) : (
+            <Title>{'Topics Board'}</Title>
+          )}
+        </>
+      ) : (
+        <li className='tool'>
+          <Title>learning to programing</Title>
+        </li>
+      )}
+    </>
+  )
+}
 
 HeaderBar.propTypes = {
   authed: PropTypes.bool.isRequired
