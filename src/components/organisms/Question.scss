@@ -1,4 +1,22 @@
+@import "../shared/variables.scss";
+@import "../shared/mixins.scss";
+
 .question__item {
    flex:1;
    min-width: 100%;
+}
+
+.message{
+   width: 100%;
+   color: color(white);
+   padding: 0.5rem;
+   font-weight: 700;
+   &__correct{
+      background-image: linear-gradient(to right, color(green) 10%, color(white) 40%);
+   }
+
+   &__fail{
+      background-image: linear-gradient(to right, darken(color(red), 10%) 10%, color(white) 40%);
+   }
+
 }

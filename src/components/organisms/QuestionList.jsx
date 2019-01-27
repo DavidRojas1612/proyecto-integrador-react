@@ -31,7 +31,7 @@ class QuestionList extends Component {
         </div>
         <div className='question__actions'>
           <Button onClick={() => { this.handlePrevQuestion(index, size) }}>Atrás</Button>
-          <Button theme='button--red' onClick={() => { this.handleNextQuestion(index, size) }}>Siguiente</Button>
+          <Button onClick={() => { this.handleNextQuestion(index, size) }}>Siguiente</Button>
         </div>
       </div >
     )

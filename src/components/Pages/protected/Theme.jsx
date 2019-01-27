@@ -43,9 +43,9 @@ class Theme extends Component {
   }
 
   render() {
-    const { theme } = this.props
+    const { theme, history } = this.props
     const { showModal, initQuestions } = this.state
-    console.log(theme)
+    console.log(this.props)
     return (
       <div className='theme__container'>
         {theme && (
@@ -56,6 +56,9 @@ class Theme extends Component {
               className='theme__image-img'
             />
             <div className='theme__theory'>
+              <Button theme='button--orange button--goback' onClick={() => { history.goBack() }}>
+                Atrás
+              </Button>
               <Button theme='button--orange button--practice' onClick={() => { this.openModal() }}>
                 Practicar
               </Button>
