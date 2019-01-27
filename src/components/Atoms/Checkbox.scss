@@ -1,0 +1,34 @@
+input[type=radio] + label {
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+  }
+  
+  input[type=radio] {
+    display: none;
+  }
+  
+  input[type=radio] + label:before {
+    content: "";
+    border: 0.1em solid MediumSeaGreen;
+    border-radius: 0.5em;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+  }
+  
+  input[type=radio] + label:active:before {
+    transform: scale(0);
+  }
+  
+  input[type=radio]:checked + label:before {
+    padding: 0.1em;
+    background-color: MediumSeaGreen;
+    border-color: MediumSeaGreen;
+    color: #fff;
+  }

@@ -17,6 +17,7 @@ body {
   font-family: $font;
   color: color(font-color);
   line-height: 1.6;
+  background-color: lighten(#eee, 5%);
 }
 
 ul {
@@ -32,6 +33,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+  margin: 0;
 }
 
 a {

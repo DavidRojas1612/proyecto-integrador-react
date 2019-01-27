@@ -1,0 +1,51 @@
+@import "../shared/variables.scss";
+@import "../shared/mixins.scss";
+
+.modal{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(34, 34, 34,0.6);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container{
+        background-color: color(white);
+        border-radius: 0.25rem;
+        max-width: 80%;
+
+        &-header{
+            display: flex;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 0.2px solid #ddd;
+            &__close{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: color(red);
+                color: color(white);
+                font-weight: bold;
+                line-height: 20px;
+                cursor: pointer;
+            }
+        }
+
+        &-body{
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+        }
+    }
+}

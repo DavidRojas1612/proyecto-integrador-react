@@ -33,6 +33,16 @@
     @include backgroundHover(color(terciary));
   }
 
+  &--orange {
+    background: color(orange);
+    @include backgroundHover(color(orange));
+  }
+
+  &--red {
+    background: color(red);
+    @include backgroundHover(color(red));
+  }
+
   &--like {
     background: transparent;
     padding: 0;
