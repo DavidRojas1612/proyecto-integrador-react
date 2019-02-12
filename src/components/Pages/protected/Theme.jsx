@@ -96,7 +96,7 @@ class Theme extends Component {
               }}
               title='¿ Deseas comenzar la practica ?'
             >
-              <div className='button__container'>
+              <div className='button__modal'>
                 <Button
                   onClick={() => {
                     this.handleInitQuestions()

@@ -69,4 +69,11 @@
     top: 50px;
     grid-template-columns: repeat(2,60%);
   }
+  &__modal{
+   top: 0; 
+   display: grid;
+   grid-gap: 10px;
+   grid-auto-flow: column;
+
+  }
 }
