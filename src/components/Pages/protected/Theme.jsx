@@ -4,7 +4,7 @@ import { setTheme } from '../../../actions'
 import Button from '../../Atoms/Button'
 import Modal from '../../Molecules/Modal'
 import './Theme.scss'
-import QuestionList from '../../organisms/QuestionList';
+import QuestionList from '../../organisms/QuestionList'
 class Theme extends Component {
   state = {
     showModal: false,
@@ -27,7 +27,6 @@ class Theme extends Component {
   handleInitQuestions = () => {
     this.setState({
       initQuestions: true
-
     })
   }
   componentDidMount = () => {
@@ -42,7 +41,7 @@ class Theme extends Component {
     handleOnSetTheme(themes[id])
   }
 
-  render() {
+  render () {
     const { theme, history } = this.props
     const { showModal, initQuestions } = this.state
     console.log(this.props)
@@ -56,30 +55,66 @@ class Theme extends Component {
               className='theme__image-img'
             />
             <div className='theme__theory'>
-              <Button theme='button--orange button--goback' onClick={() => { history.goBack() }}>
-                Atrás
-              </Button>
-              <Button theme='button--orange button--practice' onClick={() => { this.openModal() }}>
-                Practicar
-              </Button>
               {theme.theory.text}
+              <div className='button__section'>
+                <div className='button__container'>
+                  <Button
+                    theme='button--goback'
+                    onClick={() => {
+                      history.goBack()
+                    }}
+                  >
+                    Atrás
+                  </Button>
+                  <Button
+                    theme='button--practice'
+                    onClick={() => {
+                      this.openModal()
+                    }}
+                  >
+                    Practicar
+                  </Button>
+                </div>
+              </div>
             </div>
           </>
         )}
-        {showModal && (
-          initQuestions ? (
-            <Modal handleShowModal={() => { this.handleShowModal() }} title='Practica'>
+        {showModal &&
+          (initQuestions ? (
+            <Modal
+              handleShowModal={() => {
+                this.handleShowModal()
+              }}
+              title='Practica'
+            >
               <QuestionList questions={theme.practice} />
             </Modal>
           ) : (
-              <Modal handleShowModal={() => { this.handleShowModal() }} title='¿ Deseas comenzar la practica ?'>
-                <div className="button__container">
-                  <Button onClick={() => { this.handleInitQuestions() }}>Aceptar</Button>
-                  <Button theme='button--red' onClick={() => { this.handleShowModal() }}>Cancelar</Button>
-                </div>
-              </Modal>
-            )
-        )}
+            <Modal
+              handleShowModal={() => {
+                this.handleShowModal()
+              }}
+              title='¿ Deseas comenzar la practica ?'
+            >
+              <div className='button__container'>
+                <Button
+                  onClick={() => {
+                    this.handleInitQuestions()
+                  }}
+                >
+                  Aceptar
+                </Button>
+                <Button
+                  theme='button--red'
+                  onClick={() => {
+                    this.handleShowModal()
+                  }}
+                >
+                  Cancelar
+                </Button>
+              </div>
+            </Modal>
+          ))}
       </div>
     )
   }
