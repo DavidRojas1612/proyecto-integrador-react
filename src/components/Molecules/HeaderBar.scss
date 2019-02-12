@@ -1,0 +1,9 @@
+@import "../shared/variables.scss";
+@import "../shared/mixins.scss";
+
+.img__profile{
+  width: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid color(primary-dark);
+}

@@ -12,6 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // animation: show 500ms;
+    // @keyframes show {
+    //     from {transform: scale(0)}
+    //     to {transform: scale(1)}
+    //   }
 
     &__title{
         margin-right: 100px;
@@ -20,31 +25,45 @@
     &__container{
         background-color: color(white);
         border-radius: 0.25rem;
-        max-width: 80%;
+        max-width: 40%;
+        animation: show 400ms cubic-bezier(.5,.72,.64,1.47);
+
+        @keyframes show {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+          }
+
 
         &-header{
             display: flex;
             padding: 1rem 2rem;
-            display: flex;
             justify-content: space-between;
             border-bottom: 0.2px solid #ddd;
             &__close{
-                display: flex;
-                justify-content: center;
-                align-items: center;
+
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                background-color: color(red);
+                background-color: darken(color(red), 10%);
                 color: color(white);
                 font-weight: bold;
-                line-height: 20px;
+                font-size: 20pt;
+                text-align: center;
+                transform: translate(140%,-100%);
                 cursor: pointer;
+
+                & span{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: relative;
+                    line-height: 26px;
+                }
             }
         }
 
         &-body{
-            padding: 1rem 2rem;
+            padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;

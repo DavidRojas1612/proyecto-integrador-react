@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Title from '../Atoms/Title'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-
+import './HeaderBar.scss'
 const HeaderBar = ({ authed, user, theme }) => {
   document.title = theme ? theme.theme : 'PI APP'
   return (
@@ -11,7 +11,7 @@ const HeaderBar = ({ authed, user, theme }) => {
       {authed ? (
         <>
           <li className='tool'>
-            <Title>{user.displayName}</Title>
+            <img className='img__profile' src={user.photoURL} alt='profile' />
           </li>
           {theme ? (
             <li className='tool'>
